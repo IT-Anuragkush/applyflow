@@ -113,23 +113,15 @@ async function getJobs() {
     data.jobs.forEach((job) => {
       jobsContainer.innerHTML += `
         <div class="job-card">
-          <h3>${job.companyName}</h3>
-          <p>${job.jobTitle}</p>
-
-          <p>
-            Status:
-            <span class="status ${job.status.toLowerCase()}">
-              ${job.status}
-            </span>
-          </p>
-
-          <button onclick="editJob('${job._id}')">
-            Edit
-          </button>
-
-          <button onclick="deleteJob('${job._id}')">
-            Delete
-          </button>
+          <div class="job-card-header">
+            <h3>${job.companyName}</h3>
+            <span class="status ${job.status.toLowerCase()}">${job.status}</span>
+          </div>
+          <p class="job-title">${job.jobTitle}</p>
+          <div class="job-card-actions">
+            <button class="edit-btn" onclick="editJob('${job._id}')">Edit</button>
+            <button class="delete-btn" onclick="deleteJob('${job._id}')">Delete</button>
+          </div>
         </div>
       `;
     });
@@ -171,9 +163,7 @@ async function deleteJob(id) {
 async function editJob(id) {
   const companyName = prompt("Enter Company Name");
   const jobTitle = prompt("Enter Job Title");
-  const status = prompt(
-    "Enter Status (Applied/Interview/Offer/Rejected)"
-  );
+  const status = prompt("Enter Status (Applied/Interview/Offer/Rejected)");
 
   if (!companyName || !jobTitle || !status) return;
 

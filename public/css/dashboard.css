@@ -1,3 +1,7 @@
+/* ===== dashboard.css ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -230,6 +234,20 @@ body {
 #addJobBtn:hover {
   background: #1d4ed8;
   transform: translateY(-2px);
+}
+
+/* ---- Footer ---- */
+.footer {
+  margin-top: 25px;
+  padding: 20px;
+  text-align: center;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+}
+
+.footer-container p {
+  font-size: 15.5px;
+  color: #94a3b8;
 }
 
 @keyframes spin {

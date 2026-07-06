@@ -1,6 +1,6 @@
-# Smart Job Tracker
+# ApplyFlow
 
-A full-stack Job Tracking Application that helps users manage and track their job applications efficiently. Users can register, log in securely, add jobs, update application status, filter jobs, and view dashboard statistics.
+A full-stack Job Application Tracking System that helps users manage and track their job applications efficiently. Users can register, log in securely, add jobs, update application status, filter jobs, and view dashboard statistics.
 
 ## Live Demo
 
@@ -82,7 +82,7 @@ https://smart-job-tracker-co69.onrender.com
 ## Project Structure
 
 ```text
-smart-job-tracker/
+applyflow/
 │
 ├── config/
 │   └── db.js
@@ -122,9 +122,9 @@ smart-job-tracker/
 Clone the repository:
 
 ```bash
-git clone https://github.com/IT-Anuragkush/smart-job-tracker.git
+git clone https://github.com/IT-Anuragkush/applyflow.git
 
-cd smart-job-tracker
+cd applyflow
 ```
 
 Install dependencies:
@@ -148,7 +148,7 @@ Create a `.env` file in the root directory and add:
 ```env
 PORT=5000
 
-MONGO_URI=mongodb://<username>:<password>@ac-lzpryhh-shard-00-00.ehqjyyw.mongodb.net:27017,ac-lzpryhh-shard-00-01.ehqjyyw.mongodb.net:27017,ac-lzpryhh-shard-00-02.ehqjyyw.mongodb.net:27017/?ssl=true&replicaSet=atlas-f2uaqg-shard-0&authSource=admin&appName=Cluster0
+MONGO_URI=your_mongodb_connection_string
 
 JWT_SECRET=your_jwt_secret
 ```

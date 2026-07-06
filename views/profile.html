@@ -6,54 +6,64 @@
     <title>Profile</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/images/favicon.png">
-    
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+
     <link rel="stylesheet" href="/css/profile.css" />
   </head>
   <body>
-    <nav class="navbar">
-      <div class="logo">Smart Job Tracker</div>
+    <main class="main-content">
+      <nav class="navbar">
+        <div class="logo">ApplyFlow</div>
 
-      <ul class="nav-links">
-        <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/jobs">Jobs</a></li>
-        <li><a href="/profile">Profile</a></li>
-      </ul>
+        <ul class="nav-links">
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/jobs">Jobs</a></li>
+          <li><a href="/profile">Profile</a></li>
+        </ul>
 
-      <button id="logoutBtn">Logout</button>
-    </nav>
+        <button id="logoutBtn">Logout</button>
+      </nav>
 
-    <div class="profile-card">
-      <div class="avatar">A</div>
+      <div class="profile-card">
+        <div class="avatar">A</div>
 
-      <h2>My Profile</h2>
+        <h2>My Profile</h2>
 
-      <div class="profile-info">
-        <div class="info-item">
-          <strong>Name</strong>
-          <span id="name"></span>
+        <div class="profile-info">
+          <div class="info-item">
+            <strong>Name</strong>
+            <span id="name"></span>
+          </div>
+
+          <div class="info-item">
+            <strong>Email</strong>
+            <span id="email"></span>
+          </div>
         </div>
 
-        <div class="info-item">
-          <strong>Email</strong>
-          <span id="email"></span>
+        <div class="profile-actions">
+          <button class="edit-btn" id="editBtn">Edit Profile</button>
+
+          <button class="change-password-btn" id="changePasswordBtn">
+            Change Password
+          </button>
+
+          <button class="delete-btn" id="deleteAccountBtn">
+            Delete Account
+          </button>
         </div>
       </div>
 
-      <div class="profile-actions">
-        <button class="edit-btn" id="editBtn">Edit Profile</button>
-
-        <button class="change-password-btn" id="changePasswordBtn">
-          Change Password
-        </button>
-
-        <button class="delete-btn" id="deleteAccountBtn">Delete Account</button>
+      <div id="loader" class="loader-container">
+        <div class="loader"></div>
       </div>
-    </div>
+    </main>
 
-    <div id="loader" class="loader-container">
-      <div class="loader"></div>
-    </div>
+    <footer class="footer">
+      <div class="footer-container">
+        <p>&copy; 2026 ApplyFlow. All Rights Reserved.</p>
+      </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/profile.js"></script>
