@@ -4,7 +4,7 @@ A full-stack Job Application Tracking System that helps users manage and track t
 
 ## Live Demo
 
-https://smart-job-tracker-co69.onrender.com
+https://applyflow-gsss.onrender.com
 
 ---
 
