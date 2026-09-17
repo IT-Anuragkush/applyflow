@@ -1,0 +1,240 @@
+<!-- views/landing.html — NAYI FILE -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ApplyFlow — Track Every Job Application in One Place</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+
+    <link rel="stylesheet" href="/css/landing.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="landing-navbar">
+      <div class="logo">💼 ApplyFlow</div>
+
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#stats">Why ApplyFlow</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="/login" class="btn btn-ghost">Login</a>
+        <a href="/register" class="btn btn-primary">Get Started</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-content">
+        <span class="badge">🚀 Built for job seekers</span>
+        <h1>
+          Stop losing track of your <span class="highlight">job applications.</span>
+        </h1>
+        <p class="hero-subtitle">
+          ApplyFlow helps you organize every application, interview and offer
+          in one clean dashboard — so you always know what to follow up on
+          next.
+        </p>
+
+        <div class="hero-actions">
+          <a href="/register" class="btn btn-primary btn-lg">Start Tracking Free</a>
+          <a href="/login" class="btn btn-outline btn-lg">I already have an account</a>
+        </div>
+
+        <div class="hero-mini-stats">
+          <div>
+            <strong>100%</strong>
+            <span>Free to use</span>
+          </div>
+          <div>
+            <strong>4</strong>
+            <span>Status stages tracked</span>
+          </div>
+          <div>
+            <strong>&lt; 2 min</strong>
+            <span>To add a job</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="mock-card mock-card-1">
+          <div class="mock-card-header">
+            <span class="mock-dot mock-dot-red"></span>
+            <span class="mock-dot mock-dot-yellow"></span>
+            <span class="mock-dot mock-dot-green"></span>
+          </div>
+          <div class="mock-row">
+            <span>Google — SDE Intern</span>
+            <span class="mock-status mock-interview">Interview</span>
+          </div>
+          <div class="mock-row">
+            <span>Zomato — Frontend Dev</span>
+            <span class="mock-status mock-applied">Applied</span>
+          </div>
+          <div class="mock-row">
+            <span>Razorpay — Backend Dev</span>
+            <span class="mock-status mock-offer">Offer</span>
+          </div>
+          <div class="mock-row">
+            <span>Freshworks — MERN Dev</span>
+            <span class="mock-status mock-rejected">Rejected</span>
+          </div>
+          <div class="mock-chart-placeholder">
+            <div class="bar" style="height:40%"></div>
+            <div class="bar" style="height:70%"></div>
+            <div class="bar" style="height:55%"></div>
+            <div class="bar" style="height:90%"></div>
+            <div class="bar" style="height:35%"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Logos / trust strip -->
+    <section class="trust-strip">
+      <p>Track applications to companies like</p>
+      <div class="trust-logos">
+        <span>Google</span>
+        <span>Amazon</span>
+        <span>Flipkart</span>
+        <span>TCS</span>
+        <span>Infosys</span>
+        <span>Zoho</span>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+      <div class="section-heading">
+        <h2>Everything you need to stay on top of your job hunt</h2>
+        <p>No spreadsheets. No sticky notes. Just one clear dashboard.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3>Centralized Job Tracker</h3>
+          <p>
+            Log every application with company, role, location, salary,
+            priority and notes — all in one searchable list.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Visual Dashboard</h3>
+          <p>
+            See your Applied, Interview, Offer and Rejected counts at a
+            glance with live charts that update automatically.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3>Search &amp; Filter</h3>
+          <p>
+            Instantly find any application by company or role, filter by
+            status, and sort by newest or oldest.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⏰</div>
+          <h3>Never Miss a Follow-up</h3>
+          <p>
+            Mark priority on every application so you know exactly which
+            ones need your attention today.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Secure &amp; Private</h3>
+          <p>
+            Your data is protected with authenticated, user-specific access
+            — nobody else can see your applications.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Fast &amp; Lightweight</h3>
+          <p>
+            Built with a clean Node.js + MongoDB backend and zero bloat on
+            the frontend, so it loads instantly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="section-heading">
+        <h2>Get started in 3 simple steps</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Create your account</h3>
+          <p>Sign up in seconds — no credit card, no setup required.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Add your applications</h3>
+          <p>
+            Log company name, role, location, salary and status as you
+            apply.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Track your progress</h3>
+          <p>
+            Watch your dashboard update in real time as applications move
+            through interview, offer or rejection.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats / Why -->
+    <section class="stats" id="stats">
+      <div class="stats-grid">
+        <div class="stat-box">
+          <h3>4</h3>
+          <p>Application stages — Applied, Interview, Offer, Rejected</p>
+        </div>
+        <div class="stat-box">
+          <h3>1</h3>
+          <p>Dashboard for your entire job search</p>
+        </div>
+        <div class="stat-box">
+          <h3>0</h3>
+          <p>Spreadsheets needed</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <h2>Ready to organize your job search?</h2>
+      <p>Join ApplyFlow today and stop losing track of your applications.</p>
+      <a href="/register" class="btn btn-primary btn-lg">Create Free Account</a>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <p>&copy; 2026 ApplyFlow. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

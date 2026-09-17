@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>jobs</title>
+    <title>Jobs — ApplyFlow</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/favicon.png">
-    
+
     <link rel="stylesheet" href="/css/jobs.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
 
@@ -16,61 +16,156 @@
 
     <nav class="navbar">
       <div class="logo">
-        ApplyFlow
+        💼 ApplyFlow
       </div>
 
       <ul class="nav-links">
         <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/jobs">Jobs</a></li>
+        <li><a href="/jobs" class="active">Jobs</a></li>
         <li><a href="/profile">Profile</a></li>
       </ul>
 
       <button id="logoutBtn">Logout</button>
     </nav>
-    
+
     <div class="header-title">
-      <h2>💼 ApplyFlow</h2>
+      <h2>Your Job Applications</h2>
+      <p class="subtitle">Add, search and manage every application in one place</p>
     </div>
 
-    <div class="top-controls">
-      <input type="text" id="search" placeholder="Search company or role" />
-
-      <select id="filterStatus">
-        <option value="">All Status</option>
-        <option value="Applied">Applied</option>
-        <option value="Interview">Interview</option>
-        <option value="Offer">Offer</option>
-        <option value="Rejected">Rejected</option>
-      </select>
-
-      <select id="sort">
-        <option value="">Sort By</option>
-        <option value="newest">Newest</option>
-        <option value="oldest">Oldest</option>
-      </select>
-
-      <button id="searchBtn">Search</button>
+    <!-- Mini stat cards -->
+    <div class="mini-stats">
+      <div class="mini-card mini-total">
+        <span class="mini-value" id="miniTotal">0</span>
+        <span class="mini-label">Total</span>
+      </div>
+      <div class="mini-card mini-applied">
+        <span class="mini-value" id="miniApplied">0</span>
+        <span class="mini-label">Applied</span>
+      </div>
+      <div class="mini-card mini-interview">
+        <span class="mini-value" id="miniInterview">0</span>
+        <span class="mini-label">Interview</span>
+      </div>
+      <div class="mini-card mini-offer">
+        <span class="mini-value" id="miniOffer">0</span>
+        <span class="mini-label">Offer</span>
+      </div>
+      <div class="mini-card mini-rejected">
+        <span class="mini-value" id="miniRejected">0</span>
+        <span class="mini-label">Rejected</span>
+      </div>
     </div>
 
-    <form id="jobForm">
-      <input type="text" id="companyName" placeholder="Company Name" required />
+    <div class="jobs-layout">
 
-      <input type="text" id="jobTitle" placeholder="Job Title" required />
+      <div class="jobs-main">
 
-      <select id="status">
-        <option value="Applied">select</option>
-        <option value="Applied">Applied</option>
-        <option value="Interview">Interview</option>
-        <option value="Offer">Offer</option>
-        <option value="Rejected">Rejected</option>
-      </select>
+        <div class="top-controls">
+          <input type="text" id="search" placeholder="🔍 Search company or role" />
 
-      <button type="submit">Add Job</button>
-    </form>
+          <select id="filterStatus">
+            <option value="">All Status</option>
+            <option value="Applied">Applied</option>
+            <option value="Interview">Interview</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
+          </select>
 
-    <hr />
+          <select id="sort">
+            <option value="">Sort By</option>
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+          </select>
 
-    <div id="jobsContainer"></div>
+          <button id="searchBtn">Search</button>
+        </div>
+
+        <form id="jobForm">
+          <h3 class="form-title">➕ Add New Application</h3>
+
+          <div class="form-grid">
+            <input type="text" id="companyName" placeholder="Company Name *" required />
+            <input type="text" id="jobTitle" placeholder="Job Title *" required />
+            <input type="text" id="location" placeholder="Location (e.g. Remote, Bhopal)" />
+            <input type="number" id="salary" placeholder="Expected Salary (₹ / yr)" min="0" />
+            <input type="url" id="jobLink" placeholder="Job Posting Link (optional)" />
+
+            <select id="status">
+              <option value="Applied">Status: Applied</option>
+              <option value="Interview">Status: Interview</option>
+              <option value="Offer">Status: Offer</option>
+              <option value="Rejected">Status: Rejected</option>
+            </select>
+
+            <select id="priority">
+              <option value="Low">Priority: Low</option>
+              <option value="Medium" selected>Priority: Medium</option>
+              <option value="High">Priority: High</option>
+            </select>
+          </div>
+
+          <textarea id="notes" placeholder="Notes (referral name, round details, etc.)"></textarea>
+
+          <button type="submit" id="addJobSubmitBtn">Add Job</button>
+        </form>
+
+        <hr />
+
+        <div id="jobsContainer"></div>
+
+      </div>
+
+      <aside class="jobs-sidebar">
+        <div class="chart-card">
+          <h3>Status Breakdown</h3>
+          <canvas id="miniChart"></canvas>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- Edit Job Modal -->
+    <div id="editModalOverlay" class="modal-overlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h3>✏️ Edit Application</h3>
+          <button type="button" id="closeModalBtn" class="modal-close">&times;</button>
+        </div>
+
+        <form id="editJobForm">
+          <input type="hidden" id="editJobId" />
+
+          <div class="form-grid">
+            <input type="text" id="editCompanyName" placeholder="Company Name *" required />
+            <input type="text" id="editJobTitle" placeholder="Job Title *" required />
+            <input type="text" id="editLocation" placeholder="Location" />
+            <input type="number" id="editSalary" placeholder="Expected Salary (₹ / yr)" min="0" />
+            <input type="url" id="editJobLink" placeholder="Job Posting Link" />
+
+            <select id="editStatus">
+              <option value="Applied">Status: Applied</option>
+              <option value="Interview">Status: Interview</option>
+              <option value="Offer">Status: Offer</option>
+              <option value="Rejected">Status: Rejected</option>
+            </select>
+
+            <select id="editPriority">
+              <option value="Low">Priority: Low</option>
+              <option value="Medium">Priority: Medium</option>
+              <option value="High">Priority: High</option>
+            </select>
+          </div>
+
+          <textarea id="editNotes" placeholder="Notes"></textarea>
+
+          <div class="modal-footer">
+            <button type="button" id="cancelEditBtn" class="btn-secondary">Cancel</button>
+            <button type="submit">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <div id="loader" class="loader-container">
       <div class="loader"></div>
@@ -84,7 +179,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/js/jobs.js"></script>
-    
+
   </body>
 </html>

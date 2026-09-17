@@ -35,6 +35,20 @@ const jobSchema = new mongoose.Schema(
     notes: {
       type: String,
     },
+
+    jobLink: {
+      type: String,
+    },
+
+    priority: {
+      type: String,
+      enum: ["Low", "Medium", "High"],
+      default: "Medium",
+    },
+
+    interviewDate: {
+      type: Date,
+    },
   },
   { timestamps: true }
 );

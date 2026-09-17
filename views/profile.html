@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile</title>
+    <title>Profile — ApplyFlow</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/favicon.png" />
@@ -13,12 +13,12 @@
   <body>
     <main class="main-content">
       <nav class="navbar">
-        <div class="logo">ApplyFlow</div>
+        <a href="/" class="logo">💼 ApplyFlow</a>
 
         <ul class="nav-links">
           <li><a href="/dashboard">Dashboard</a></li>
           <li><a href="/jobs">Jobs</a></li>
-          <li><a href="/profile">Profile</a></li>
+          <li><a href="/profile" class="active">Profile</a></li>
         </ul>
 
         <button id="logoutBtn">Logout</button>
@@ -27,7 +27,19 @@
       <div class="profile-card">
         <div class="avatar">A</div>
 
-        <h2>My Profile</h2>
+        <h2 id="displayName">My Profile</h2>
+        <p class="email-subtitle" id="displayEmail"></p>
+
+        <div class="profile-chips">
+          <div class="chip">
+            <span class="chip-value" id="memberSince">-</span>
+            <span class="chip-label">Member Since</span>
+          </div>
+          <div class="chip">
+            <span class="chip-value" id="totalApplications">0</span>
+            <span class="chip-label">Applications Tracked</span>
+          </div>
+        </div>
 
         <div class="profile-info">
           <div class="info-item">
@@ -42,14 +54,14 @@
         </div>
 
         <div class="profile-actions">
-          <button class="edit-btn" id="editBtn">Edit Profile</button>
+          <button class="edit-btn" id="editBtn">✏️ Edit Profile</button>
 
           <button class="change-password-btn" id="changePasswordBtn">
-            Change Password
+            🔒 Change Password
           </button>
 
           <button class="delete-btn" id="deleteAccountBtn">
-            Delete Account
+            🗑️ Delete Account
           </button>
         </div>
       </div>
@@ -59,6 +71,47 @@
       </div>
     </main>
 
+    <!-- Edit Profile Modal -->
+    <div id="editModalOverlay" class="modal-overlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h3>✏️ Edit Profile</h3>
+          <button type="button" id="closeEditModalBtn" class="modal-close">&times;</button>
+        </div>
+
+        <form id="editProfileForm">
+          <input type="text" id="editName" placeholder="Full Name" required />
+          <input type="email" id="editEmail" placeholder="Email Address" required />
+
+          <div class="modal-footer">
+            <button type="button" id="cancelEditBtn" class="btn-secondary">Cancel</button>
+            <button type="submit">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div id="passwordModalOverlay" class="modal-overlay">
+      <div class="modal">
+        <div class="modal-header">
+          <h3>🔒 Change Password</h3>
+          <button type="button" id="closePasswordModalBtn" class="modal-close">&times;</button>
+        </div>
+
+        <form id="changePasswordForm">
+          <input type="password" id="oldPassword" placeholder="Current Password" required />
+          <input type="password" id="newPassword" placeholder="New Password" required minlength="6" />
+          <input type="password" id="confirmPassword" placeholder="Confirm New Password" required minlength="6" />
+
+          <div class="modal-footer">
+            <button type="button" id="cancelPasswordBtn" class="btn-secondary">Cancel</button>
+            <button type="submit">Update Password</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <footer class="footer">
       <div class="footer-container">
         <p>&copy; 2026 ApplyFlow. All Rights Reserved.</p>
@@ -66,6 +119,8 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <script src="/js/profile.js"></script>
   </body>
 </html>

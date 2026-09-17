@@ -154,3 +154,35 @@ form p a:hover {
     font-size: 24px;
   }
 }
+
+/* ---- Compact SweetAlert2 popups ---- */
+.swal2-popup {
+  width: 22em !important;
+  padding: 1.4em !important;
+  border-radius: 16px !important;
+}
+
+.swal2-title {
+  font-size: 1.35em !important;
+  margin-bottom: 0.3em !important;
+}
+
+.swal2-html-container {
+  font-size: 0.95em !important;
+}
+
+.swal2-icon {
+  width: 3.5em !important;
+  height: 3.5em !important;
+  margin: 1em auto 0.6em !important;
+}
+
+.swal2-actions {
+  margin-top: 1em !important;
+}
+
+.swal2-confirm,
+.swal2-cancel {
+  font-size: 0.9em !important;
+  padding: 0.5em 1.4em !important;
+}

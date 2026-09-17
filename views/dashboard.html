@@ -3,19 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>dashboard</title>
+    <title>Dashboard — ApplyFlow</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/favicon.png">
 
     <link rel="stylesheet" href="/css/dashboard.css" />
-    
+
   </head>
   <body>
     <nav class="navbar">
-      <div class="logo">ApplyFlow</div>
+      <a href="/" class="logo">💼 ApplyFlow</a>
 
       <ul class="nav-links">
-        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/dashboard" class="active">Dashboard</a></li>
         <li><a href="/jobs">Jobs</a></li>
         <li><a href="/profile">Profile</a></li>
       </ul>
@@ -23,43 +23,74 @@
       <button id="logoutBtn">Logout</button>
     </nav>
 
-    <div class="welcome-box">
-      <h2 id="welcome">Welcome</h2>
-    </div>
-    
-    <div class="action-container">
+    <!-- Hero-style welcome banner -->
+    <div class="welcome-hero">
+      <div class="welcome-hero-text">
+        <h2 id="welcome">Welcome</h2>
+        <p class="welcome-subtitle">Here's how your job search is going</p>
+      </div>
+
       <button id="addJobBtn">+ Add New Job</button>
     </div>
 
+    <!-- Clickable stat cards -->
     <div class="stats-container">
-      <div class="card">
-        <h3>Total Jobs</h3>
-        <p id="total">0</p>
+      <a href="/jobs" class="card card-total">
+        <div class="card-icon">📊</div>
+        <div class="card-body">
+          <h3>Total Jobs</h3>
+          <p id="total">0</p>
+        </div>
+      </a>
+
+      <a href="/jobs?status=Applied" class="card card-applied">
+        <div class="card-icon">📨</div>
+        <div class="card-body">
+          <h3>Applied</h3>
+          <p id="applied">0</p>
+        </div>
+      </a>
+
+      <a href="/jobs?status=Interview" class="card card-interview">
+        <div class="card-icon">🎤</div>
+        <div class="card-body">
+          <h3>Interview</h3>
+          <p id="interview">0</p>
+        </div>
+      </a>
+
+      <a href="/jobs?status=Offer" class="card card-offer">
+        <div class="card-icon">🎉</div>
+        <div class="card-body">
+          <h3>Offer</h3>
+          <p id="offer">0</p>
+        </div>
+      </a>
+
+      <a href="/jobs?status=Rejected" class="card card-rejected">
+        <div class="card-icon">❌</div>
+        <div class="card-body">
+          <h3>Rejected</h3>
+          <p id="rejected">0</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="charts-row">
+      <div class="chart-container">
+        <h3 class="chart-title">Status Breakdown</h3>
+        <canvas id="jobChart"></canvas>
       </div>
 
-      <div class="card">
-        <h3>Applied</h3>
-        <p id="applied">0</p>
-      </div>
-
-      <div class="card">
-        <h3>Interview</h3>
-        <p id="interview">0</p>
-      </div>
-
-      <div class="card">
-        <h3>Offer</h3>
-        <p id="offer">0</p>
-      </div>
-
-      <div class="card">
-        <h3>Rejected</h3>
-        <p id="rejected">0</p>
+      <div class="chart-container">
+        <h3 class="chart-title">Applications Over Time</h3>
+        <canvas id="trendChart"></canvas>
       </div>
     </div>
 
-    <div class="chart-container">
-      <canvas id="jobChart"></canvas>
+    <div class="recent-section">
+      <h3 class="chart-title">Recent Applications</h3>
+      <div id="recentList" class="recent-list"></div>
     </div>
 
     <div id="loader" class="loader-container">

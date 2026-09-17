@@ -30,7 +30,7 @@ app.use("/api/jobs", jobRoutes);
 // Frontend Routes
 
 app.get("/", (req, res) => {
-  res.redirect("/login");
+  res.sendFile(path.join(__dirname, "views", "landing.html"));
 });
 
 app.get("/register", (req, res) => {
